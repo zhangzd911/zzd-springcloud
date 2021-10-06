@@ -4,10 +4,9 @@ import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.zzd.dao.AgentZoneDao;
-import com.zzd.dto.AgentZoneDto;
-import com.zzd.entity.AgentZone;
-import com.zzd.mapper.AgentZoneMapper;
+import com.zzd.dao.UserDao;
+import com.zzd.entity.User;
+import com.zzd.mapper.UserMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -18,10 +17,10 @@ public class DemoService {
 
 
     @Resource
-    private AgentZoneDao agentZoneDao;
+    private UserDao userDao;
 
     @Resource
-    private AgentZoneMapper agentZoneMapper;
+    private UserMapper userMapper;
 
 
     public String getUser() {
@@ -34,11 +33,11 @@ public class DemoService {
         return "sentinelTest";
     }
 
-    public AgentZone jpaDemo() {
+    public User jpaDemo() {
 
-        Optional<AgentZone> agentZone = agentZoneDao.findById("007b4c0d4683a6e6387598976286d930");
+        Optional<User> user = userDao.findById(1);
 
-        return agentZone.get();
+        return user.get();
     }
 
 
@@ -63,19 +62,19 @@ public class DemoService {
         return "我被降级了....";
     }
 
-    public AgentZone mybatisDemo() {
+    public User mybatisDemo() {
 
-        return agentZoneMapper.byid("007b4c0d4683a6e6387598976286d930");
+        return userMapper.byid("007b4c0d4683a6e6387598976286d930");
     }
 
-    public IPage<AgentZone> mybatisPageDemo() {
-        IPage<AgentZone> page = new Page<AgentZone>(1,5);
-        return agentZoneMapper.list(page);
+    public IPage<User> mybatisPageDemo() {
+        IPage<User> page = new Page<User>(1,5);
+        return userMapper.list(page);
     }
 
-    public AgentZoneDto mybatisMapperOtherEntity() {
+    /*public AgentZoneDto mybatisMapperOtherEntity() {
 
         return agentZoneMapper.byMapperOtherEntity("007b4c0d4683a6e6387598976286d930");
 
-    }
+    }*/
 }

@@ -9,12 +9,12 @@ spring:
     nacos:
       #配置中心地址
       config:
-        server-addr: 10.10.10.221:8822
+        server-addr: 127.0.0.1:8848
         #配置文件类型
         file-extension: yml
 
         ext-config[0]:
-          dataid: sharding-operate.yml
+          dataid: datasource-demo.yml
           refresh: true
 
         ext-config[1]:
@@ -22,20 +22,13 @@ spring:
           refresh: true
 
         ext-config[2]:
-          dataid: ReportAdmin.yml
+          dataid: reportAdmin.yml
           refresh: true
 
         ext-config[3]:
           dataid: redis.yml
           refresh: true
 
-          ext-config[4]:
-            dataid: mybatis.yml
-            refresh: true
-
-          ext-config[5]:
-            dataid: memcache.yml
-            refresh: true
-          ext-config[6]:
-            dataid: sentinel.yml
-            refresh: true
+        ext-config[4]:
+          dataid: mybatis.yml
+          refresh: true

@@ -1,8 +1,7 @@
 package com.zzd.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.zzd.dto.AgentZoneDto;
-import com.zzd.entity.AgentZone;
+import com.zzd.entity.User;
 import com.zzd.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 @RefreshScope
@@ -50,17 +47,17 @@ public class DemoController {
      */
 
     @GetMapping("/jpa")
-    public AgentZone jpa(){
+    public User jpa(){
         return demoService.jpaDemo();
     }
 
     @GetMapping("/mybatis")
-    public AgentZone mybatis(){
+    public User mybatis(){
         return demoService.mybatisDemo();
     }
 
     @GetMapping("/mybatis/page")
-    public IPage<AgentZone> mybatisPage(){
+    public IPage<User> mybatisPage(){
         return demoService.mybatisPageDemo();
     }
 
@@ -78,17 +75,17 @@ public class DemoController {
         return demoService.sentinelTest();
     }
 
-    @GetMapping("/mybatisMapperOtherEntity")
+    /*@GetMapping("/mybatisMapperOtherEntity")
     public AgentZoneDto mybatisMapperOtherEntity(){
         return demoService.mybatisMapperOtherEntity();
-    }
+    }*/
 
 
-    @PostMapping("/getPort")
+    /*@PostMapping("/getPort")
     public String getPort(@Validated @RequestBody AgentZoneDto agentZoneDto){
         agentZoneDto.getAgentid();
         return port;
-    }
+    }*/
 
     /*@GetMapping("/testHeap")
     public void testHeap(){

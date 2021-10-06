@@ -1,9 +1,8 @@
 package com.zzd.mapper;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.zzd.dto.AgentZoneDto;
-import com.zzd.entity.AgentZone;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.zzd.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -16,11 +15,11 @@ import org.apache.ibatis.annotations.Param;
  * @since 2021-06-21
  */
 @Mapper
-public interface AgentZoneMapper extends BaseMapper<AgentZone> {
+public interface UserMapper extends BaseMapper<User> {
 
-    AgentZone byid(String id);
+    User byid(String id);
 
-    IPage<AgentZone> list(IPage<AgentZone> page);
+    IPage<User> list(IPage<User> page);
 
-    AgentZoneDto byMapperOtherEntity(@Param("id") String id);
+    User byMapperOtherEntity(@Param("id") String id);
 }

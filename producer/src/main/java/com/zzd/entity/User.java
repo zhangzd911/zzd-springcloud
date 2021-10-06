@@ -11,8 +11,8 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "agent_zone")
-public class AgentZone implements Serializable {
+@Table(name = "user")
+public class User implements Serializable {
 
 	/**
 	 * 
@@ -20,13 +20,12 @@ public class AgentZone implements Serializable {
 	private static final long serialVersionUID = -7226647598763762930L;
 
 	@Id
-	private String id;
-	private String zoneCode;
-	private Long agentid;
-	private Long creatorid;
-	private Date createTime;
+	private int id;
+	private String name;
+	private int age;
+	private int sex;
 
-	public AgentZone() {
+	public User() {
 
 	}
 
