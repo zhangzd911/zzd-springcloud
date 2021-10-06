@@ -1,0 +1,73 @@
+server:
+  port: 6010
+
+
+
+#基础地址配置
+my:
+  config:
+    info: ""
+    demo: 123
+    nacos:
+      ip: 10.10.10.221
+      port: 8888
+    sentinel:
+      ip: 10.10.10.221
+      port: 8718
+    mysql:
+      ip: 10.10.10.192
+      port: 3306
+
+spring:
+  application:
+    name: server-admin
+
+#注册中心配置
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${my.config.nacos.ip}:${my.config.nacos.port}
+        namespace: 7981f0d8-6c51-4463-9abe-3ba5dcc8353e
+
+# 告警邮箱配置
+#  mail:
+#    host: smtp.qq.com
+#    username: 997155727@qq.com
+#    password: xx
+#  boot:
+#    admin:
+#      notify:
+#        mail:
+#          to: zzd@zzd.com.cn
+#          from: 997155727@qq.com
+#          enabled: true
+
+# 监控安全配置
+  security:
+    user:
+      name: admin
+      password: admin
+    basic:
+      enabled: false
+
+# springboot admin 展示信息配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+# 日志配置
+logging:
+  level:
+    com:
+      zzd: debug
+  file: ./logs/${spring.application.name}.log
+  path: ./logs
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{50} - %msg%n'
+    file: '%d{yyyy-MM-dd HH:mm:ss} === [%thread] === %-5level === %logger{50} ==== %msg%n'

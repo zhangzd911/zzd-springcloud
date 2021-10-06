@@ -1,0 +1,41 @@
+server:
+  port: 9301
+
+spring:
+  application:
+    name: producer
+
+  cloud:
+    nacos:
+      #配置中心地址
+      config:
+        server-addr: 172.31.161.248:8848
+        #配置文件类型
+        file-extension: yml
+
+        ext-config[0]:
+          dataid: sharding-operate.yml
+          refresh: true
+
+        ext-config[1]:
+          dataid: discovery.yml
+          refresh: true
+
+        ext-config[2]:
+          dataid: reportAdmin.yml
+          refresh: true
+
+        ext-config[3]:
+          dataid: redis.yml
+          refresh: true
+
+        ext-config[4]:
+          dataid: mybatis.yml
+          refresh: true
+
+        ext-config[5]:
+          dataid: memcache.yml
+          refresh: true
+#          ext-config[6]:
+#            dataid: sentinel.yml
+#            refresh: true

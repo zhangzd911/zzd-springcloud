@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzd.mapper.StudentMapper">
+  <resultMap id="BaseResultMap" type="com.zzd.entity.Student">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="xm" jdbcType="VARCHAR" property="xm" />
+    <result column="xh" jdbcType="VARCHAR" property="xh" />
+    <result column="xb" jdbcType="VARCHAR" property="xb" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="lxfs" jdbcType="VARCHAR" property="lxfs" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="salt" jdbcType="VARCHAR" property="salt" />
+    <result column="picpath" jdbcType="VARCHAR" property="picpath" />
+    <result column="orgcode" jdbcType="INTEGER" property="orgcode" />
+    <result column="bjid" jdbcType="INTEGER" property="bjid" />
+    <result column="bjid_ch" jdbcType="VARCHAR" property="bjidCh" />
+    <result column="bh" jdbcType="VARCHAR" property="bh" />
+    <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="fileid" jdbcType="VARCHAR" property="fileid" />
+    <result column="payment" jdbcType="BIT" property="payment" />
+    <result column="phonenum" jdbcType="VARCHAR" property="phonenum" />
+    <result column="hj" jdbcType="VARCHAR" property="hj" />
+    <result column="idcard" jdbcType="VARCHAR" property="idcard" />
+    <result column="serialnumber" jdbcType="VARCHAR" property="serialnumber" />
+    <result column="campusid" jdbcType="INTEGER" property="campusid" />
+    <result column="rxny" jdbcType="VARCHAR" property="rxny" />
+    <result column="xmpy" jdbcType="VARCHAR" property="xmpy" />
+    <result column="xslx" jdbcType="VARCHAR" property="xslx" />
+    <result column="zjlx" jdbcType="VARCHAR" property="zjlx" />
+    <result column="csd" jdbcType="VARCHAR" property="csd" />
+    <result column="mz" jdbcType="VARCHAR" property="mz" />
+    <result column="gj" jdbcType="VARCHAR" property="gj" />
+    <result column="jkzk" jdbcType="VARCHAR" property="jkzk" />
+    <result column="txdz" jdbcType="VARCHAR" property="txdz" />
+    <result column="yzbm" jdbcType="VARCHAR" property="yzbm" />
+    <result column="fkxz" jdbcType="VARCHAR" property="fkxz" />
+    <result column="jjlxr" jdbcType="VARCHAR" property="jjlxr" />
+    <result column="jjdh" jdbcType="VARCHAR" property="jjdh" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="hkszd" jdbcType="VARCHAR" property="hkszd" />
+    <result column="publishdate" jdbcType="VARCHAR" property="publishdate" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="jg" jdbcType="VARCHAR" property="jg" />
+    <result column="blood_type" jdbcType="VARCHAR" property="bloodType" />
+    <result column="healthy_diet" jdbcType="VARCHAR" property="healthyDiet" />
+    <result column="hobby" jdbcType="VARCHAR" property="hobby" />
+    <result column="signature" jdbcType="VARCHAR" property="signature" />
+    <result column="main_school_number" jdbcType="VARCHAR" property="mainSchoolNumber" />
+    <result column="secondary_school_number" jdbcType="VARCHAR" property="secondarySchoolNumber" />
+    <result column="bjids" jdbcType="VARCHAR" property="bjids" />
+    <result column="phonenumbak" jdbcType="VARCHAR" property="phonenumbak" />
+    <result column="idcardbak" jdbcType="VARCHAR" property="idcardbak" />
+    <result column="saltidcardbak" jdbcType="VARCHAR" property="saltidcardbak" />
+    <result column="oauthid" jdbcType="VARCHAR" property="oauthid" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="login_name" jdbcType="VARCHAR" property="loginName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="attendance_group" jdbcType="VARCHAR" property="attendanceGroup" />
+    <result column="picpath1" jdbcType="VARCHAR" property="picpath1" />
+    <result column="picpath2" jdbcType="VARCHAR" property="picpath2" />
+    <result column="quality_level" jdbcType="VARCHAR" property="qualityLevel" />
+    <result column="datapath" jdbcType="VARCHAR" property="datapath" />
+    <result column="data_time" jdbcType="TIMESTAMP" property="dataTime" />
+    <result column="school" jdbcType="VARCHAR" property="school" />
+    <result column="banding_count" jdbcType="INTEGER" property="bandingCount" />
+    <result column="facedata_path" jdbcType="VARCHAR" property="facedataPath" />
+    <result column="is_graduation" jdbcType="TINYINT" property="isGraduation" />
+  </resultMap>
+
+
+  <select id="getUser" resultType="com.zzd.entity.Student">
+    select * from wx_xx_xsjb limit 1
+  </select>
+
+  <select id="getOtherDataBaseTable" resultType="java.lang.String" >
+    select corp from operate.corp_standard_campus limit 1
+  </select>
+</mapper>

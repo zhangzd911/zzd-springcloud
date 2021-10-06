@@ -1,0 +1,113 @@
+server:
+  port: 8900
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: gateway
+
+  cloud:
+    nacos:
+      #配置中心地址
+      config:
+        server-addr: 172.31.161.248:8848
+        #配置文件类型
+        file-extension: yml
+
+        ext-config[0]:
+          dataid: discovery.yml
+          refresh: true
+
+        ext-config[1]:
+          dataid: reportAdmin.yml
+          refresh: true
+
+        ext-config[2]:
+          dataid: redis.yml
+          refresh: true
+
+
+#        ext-config[3]:
+#          dataid: sentinel.yml
+#          refresh: true
+
+        ext-config[3]:
+          dataid: gateway.yml
+          refresh: true
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: routeid
+#          uri: lb://serviceName
+#          predicates:
+#            - Path=/house/**
+#          filters:
+#            - name: MyRetry
+#              args:
+#                retries: 3
+#                series:
+#                  - SERVER_ERROR
+#                statuses:
+#                  - Locked
+#                methods:
+#                  - GET
+#                  - POST
+#                exceptions:
+#                  - java.io.IOException
+#
+#    nacos:
+#      #配置中心地址
+#      config:
+#        server-addr: 10.10.10.221:8848
+#        #配置文件类型
+#        file-extension: yml
+#        namespace: 7981f0d8-6c51-4463-9abe-3ba5dcc8353e
+#        ext-config[0]:
+#          dataid: cloud_datasource_operate.yml
+#          group: PRE
+#          refresh: true
+#
+#        ext-config[1]:
+#          dataid: cloud_service_governance.yml
+#          group: PRE
+#          refresh: true
+#
+#        ext-config[2]:
+#          dataid: cloud_redis.yml
+#          group: PRE
+#          refresh: true
+#
+#        ext-config[3]:
+#          dataid: cloud_gateway.yml
+#          group: PRE
+#          refresh: true
+#      #注册中心地址
+#      discovery:
+#        server-addr: 10.10.10.221:8888
+#        namespace: 7981f0d8-6c51-4463-9abe-3ba5dcc8353e
+#    #整合 nacos 下发配置
+##    sentinel:
+##      #服务启动之后 直接去注册到dashboard
+##      eager: true
+##      datasource:
+##        ds:
+##          nacos:
+##            server-addr: 10.10.10.221:8848
+##            dataId: ${spring.application.name}-sentinel
+##            groupId: PRE
+##            ruleType: flow
+##      #sentinel控制台
+##      transport:
+##        dashboard: 10.10.10.221:8718
+#
+#
+#logging:
+#  level:
+#    com:
+#      zzd: debug
+#  file: ./logs/${spring.application.name}.log
+#  path: ./logs
+#  pattern:
+#    console: '%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{50} - %msg%n'
+#    file: '%d{yyyy-MM-dd HH:mm:ss} === [%thread] === %-5level === %logger{50} ==== %msg%n'

@@ -1,0 +1,70 @@
+server:
+  port: 9902
+
+spring:
+  application:
+    name: consumer
+
+  cloud:
+    nacos:
+      #配置中心地址
+      config:
+        server-addr: ${my.config.nacos.ip}:${my.config.nacos.port}
+        #配置文件类型
+        file-extension: yml
+        group: PRE
+        ext-config[0]:
+          dataid: cloud_datasource.yml
+          group: PRE
+          refresh: true
+
+        ext-config[1]:
+          dataid: cloud_service_governance.yml
+          group: PRE
+          refresh: true
+        namespace: 7981f0d8-6c51-4463-9abe-3ba5dcc8353e
+      #注册中心地址
+      discovery:
+        server-addr: ${my.config.nacos.ip}:${my.config.nacos.port}
+    #整合 nacos 下发配置
+    sentinel:
+      #服务启动之后 直接去注册到dashboard
+      eager: true
+      datasource:
+        ds:
+          nacos:
+            server-addr: ${my.config.nacos.ip}:${my.config.nacos.port}
+            dataId: ${spring.application.name}-sentinel
+            groupId: DEFAULT_GROUP
+            ruleType: flow
+      #sentinel控制台
+      transport:
+        dashboard: ${my.config.sentinel.ip}:${my.config.sentinel.port}
+
+logging:
+  level:
+    com:
+      zzd: debug
+  file: /Users/space/Documents/work/projects/zzd-springcloud/logs/consumer.log
+  path: /Users/space/Documents/work/projects/zzd-springcloud/logs
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{50} - %msg%n'
+    file: '%d{yyyy-MM-dd HH:mm:ss} === [%thread] === %-5level === %logger{50} ==== %msg%n'
+
+
+my:
+  config:
+    info: ""
+    demo: 123
+    nacos:
+      ip: 10.10.10.221
+      port: 8848
+    sentinel:
+      ip: 10.10.10.221
+      port: 8718
+    zipkin:
+      ip: 10.10.10.221
+      port: 9411
+    mysql:
+      ip: 10.10.10.192
+      port: 3306
